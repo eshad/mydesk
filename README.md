@@ -11,9 +11,15 @@ Cross-platform peer-to-peer remote desktop application. Connect to and control r
 
 ## Features
 
-- Remote desktop streaming via WebRTC
-- Mouse & keyboard control
-- File transfer between devices
+- Remote desktop streaming via WebRTC (60 fps, motion-optimized)
+- Mouse & keyboard control with low-latency coalesced input
+- Ctrl+Alt+Del to the remote Windows machine (real Secure Attention Sequence)
+- Quality presets — Low / Balanced / High (adjustable bitrate & frame rate)
+- Screenshot remote screen (saved to Downloads)
+- Screen recording (saved as .webm to Downloads)
+- In-session chat
+- File transfer between devices (HTTP relay with resume)
+- Clipboard sync (text and files)
 - Password protection with remember device
 - Auto-discovery of online devices
 - Tabbed sessions (macOS)
@@ -21,14 +27,19 @@ Cross-platform peer-to-peer remote desktop application. Connect to and control r
 - Auto-connect and reconnect
 - Launch at login
 
-## Server Setup
+## Advanced / Admin Settings
 
-```bash
-cd signaling-server
-./deploy.sh user@your-server.com your-key.pem
-```
+Relay server configuration (IP and port) is protected and hidden from normal users.
 
-Required ports: TCP 3001, 3002, 3478 | UDP 3478, 49152-65535
+- Open with **Ctrl+Shift+C**
+- Enter the admin password to view or change the relay server (default: `P@ssw0rd`)
+- The admin password can be changed from within the unlocked settings panel
+
+## Required Ports (relay server)
+
+TCP 3001, 3002, 3478 | UDP 3478, 49152-65535
+
+(TCP 3478 is required for TURN over restrictive corporate firewalls.)
 
 ## License
 
